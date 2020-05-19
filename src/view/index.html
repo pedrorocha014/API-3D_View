@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.babylonjs.com/babylon.max.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" style="width: 100%;"></canvas>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function(){
+            var canvas = document.getElementById('canvas');
+        var engine = new BABYLON.Engine(canvas, true);
+        engine.enableOfflineSupport = false; // Dont require a manifest file
+        var createScene = function(){
+            var scene = new BABYLON.Scene(engine);
+            scene.clearColor = new BABYLON.Color3.Black();
+            var camera = new BABYLON.ArcRotateCamera("arcCam",
+                                    BABYLON.Tools.ToRadians(0),
+                                    BABYLON.Tools.ToRadians(0),
+                                    10.0,BABYLON.Vector3.Zero(),scene);
+            camera.attachControl(canvas,true);
+            var light = new BABYLON.HemisphericLight("hemi", new BABYLON.Vector3(0, 1, 0), scene);
+            light.groundColor = BABYLON.Color3.Gray();
+            light.parent = camera;
+            light.intensity = 1.5;
+            var box = BABYLON.MeshBuilder.CreateBox("box", {height: 1, width: 0.75, depth: 0.25}, scene);
+            return scene;
+        }
+        var scene = createScene();
+        var cam = scene.activeCamera;
+        
+        engine.runRenderLoop(function(){
+            scene.render();
+            if(cam.radius <= 3){ cam.radius = 4; }
+        });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "api-3d_view",
+  "version": "1.0.0",
+  "description": "Provide an api with endpoint for viewing 3D models.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrorocha014/API-3D_View.git"
+  },
+  "keywords": [
+    "API",
+    "NodeJs",
+    "3D",
+    "view"
+  ],
+  "author": "Pedro Almeida Rocha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedrorocha014/API-3D_View/issues"
+  },
+  "homepage": "https://github.com/pedrorocha014/API-3D_View#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
